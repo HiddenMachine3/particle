@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 
-#todo: move class codes into separte python files and import as modules
+# todo: move class codes into separte python files and import as modules
 
 class Vec2d:
     def __init__(self, x, y):
@@ -47,11 +47,11 @@ class Particle:
         self.pos = pos
         self.vel = vel
 
+
 particles = []
 N = 5
 x_bounds = 10
 y_bounds = 10
-
 
 steps = 10
 
@@ -59,7 +59,6 @@ plt.rcParams["figure.figsize"] = [7.50, 3.50]
 plt.rcParams["figure.autolayout"] = True
 fig, ax = plt.subplots()
 marker_size = 50
-
 
 
 def init():  # initialising particle positions and velocities
@@ -90,7 +89,6 @@ def display():
     for i in range(0, N):
         X.append(particles[i].pos.x)
         Y.append(particles[i].pos.y)
-    # todo:  write animation code here\
 
     fig.clear()
     ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(0, x_bounds), ylim=(0, y_bounds))
@@ -99,9 +97,11 @@ def display():
     s = ax.scatter(X, Y, s=marker_size, cmap="RdBu_r", marker="o",
                    edgecolor='black')
 
-def animate():
+
+def animate(i):
     update()
     display()
+
 
 def start():
     init()
@@ -110,5 +110,6 @@ def start():
 
     ani.save('animation.gif')
     plt.show()
+
 
 start()
