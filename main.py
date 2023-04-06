@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 
-# todo: move class codes into separte python files and import as modules
+# todo: move class codes into separate python files and import as modules
 
 class Vec2d:
     def __init__(self, x, y):
@@ -63,10 +63,15 @@ marker_size = 50
 
 def init():  # initialising particle positions and velocities
     for i in range(0, N):
-        particles.append(
-            Particle(
-                Vec2d(np.random.random() * x_bounds, np.random.random() * y_bounds),
-                Vec2d(np.random.random(), np.random.random())))
+        θ = np.random.random() * np.pi * 2  # random angle between 0 and 2 pi
+
+        # initialising with random position within the boundaries
+        pos = Vec2d(np.random.random() * x_bounds, np.random.random() * y_bounds)
+
+        # initialising with random velocity with unit speed
+        vel = Vec2d(np.cos(θ), np.sin(θ))  # unit vector
+        vel.mult(0.1)
+        particles.append(Particle(pos, vel))
 
 
 def update():
