@@ -111,7 +111,7 @@ def animate(i):
 def start():
     init()
     plt.grid(b=None)
-    ani = animation.FuncAnimation(fig, animate, interval=100, frames=range(steps))
+    ani = animation.FuncAnimation(fig, animate, interval=100, frames=range(100))
 
     ani.save('animation.gif')
     plt.show()
