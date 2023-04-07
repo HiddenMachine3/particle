@@ -53,7 +53,7 @@ N = 5
 x_bounds = 10
 y_bounds = 10
 
-steps = 10
+steps = 100
 
 plt.rcParams["figure.figsize"] = [7.50, 3.50]
 plt.rcParams["figure.autolayout"] = True
